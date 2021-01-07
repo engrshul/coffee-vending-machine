@@ -8,11 +8,9 @@ import java.util.*;
 public class Ingredient {
 
     private String ingredientName;
-    private Integer quantity;
 
-    public Ingredient(String ingredientName, Integer quantity) {
+    public Ingredient(String ingredientName) {
         this.ingredientName = ingredientName;
-        this.quantity = quantity;
     }
 
     @Override

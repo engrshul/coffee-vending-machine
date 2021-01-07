@@ -1,15 +1,20 @@
 package com.anshul.coffeevendingmachine.input;
-// this request system has to serve..
 
 import com.anshul.coffeevendingmachine.model.*;
+import lombok.*;
 import java.util.*;
 
+@Data
 public class InputRequest {
+    private Integer machineId;
+    private List<Beverage> beverageList;
+    private Integer noOFOutlets;
+    private List<Component> totalInventory;
 
-    // this will hv information about beverage and ingredient quantity it requires
-    List<Beverage> beverageList;
-    // no of outlets in machine
-    Integer noOFOutlets;
-    // total inventory details
-
+    public InputRequest(Integer machineId,List<Beverage> beverageList, List<Component> totalInventory, Integer noOFOutlets) {
+        this.machineId=machineId;
+        this.beverageList = beverageList;
+        this.noOFOutlets = noOFOutlets;
+        this.totalInventory = totalInventory;
+    }
 }
