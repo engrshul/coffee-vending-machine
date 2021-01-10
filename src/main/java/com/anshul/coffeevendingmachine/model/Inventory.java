@@ -1,15 +1,20 @@
 package com.anshul.coffeevendingmachine.model;
 
-import lombok.*;
-
 import java.util.*;
 
-@Data
 public class Inventory {
 
-    private List<Component> inventory;
+    private  Map<Ingredient,Double> inventoryMap;;
 
-    public Inventory(List<Component> inventory) {
-        this.inventory = inventory;
+    public Inventory() {
+        inventoryMap = new HashMap<>();
+    }
+
+    public Map<Ingredient, Double> getInventoryMap() {
+        return inventoryMap;
+    }
+
+    public void setInventoryMap(Map<Ingredient, Double> inventoryMap) {
+        this.inventoryMap = inventoryMap;
     }
 }

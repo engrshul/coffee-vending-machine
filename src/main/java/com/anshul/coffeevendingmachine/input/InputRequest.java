@@ -6,13 +6,11 @@ import java.util.*;
 
 @Data
 public class InputRequest {
-    private Integer machineId;
     private List<Beverage> beverageList;
     private Integer noOFOutlets;
     private List<Component> totalInventory;
 
-    public InputRequest(Integer machineId,List<Beverage> beverageList, List<Component> totalInventory, Integer noOFOutlets) {
-        this.machineId=machineId;
+    public InputRequest(List<Beverage> beverageList, List<Component> totalInventory, Integer noOFOutlets) {
         this.beverageList = beverageList;
         this.noOFOutlets = noOFOutlets;
         this.totalInventory = totalInventory;

@@ -1,5 +1,8 @@
 package com.anshul.coffeevendingmachine.model;
 
+import lombok.*;
+
+@Getter
 public class Component {
 
     private Ingredient ingredient;

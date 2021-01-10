@@ -23,7 +23,7 @@ public class InputProcessor {
         // get data to create input request
         List<Beverage> beveragesList = getBeveragesList(beveragesJson);
         List<Component> totalInventory = getTotalInventory(totalInventoryJson);
-        InputRequest inputRequest = new InputRequest(beveragesList,totalInventory,outletsJson.get("count_n").getAsDouble());
+        InputRequest inputRequest = new InputRequest(beveragesList,totalInventory,outletsJson.get("count_n").getAsInt());
         return inputRequest;
     }
 

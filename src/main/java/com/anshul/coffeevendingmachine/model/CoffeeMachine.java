@@ -6,15 +6,24 @@ import java.util.concurrent.*;
 @Data
 public class CoffeeMachine {
 
-    private Integer machineId;
     private Integer noOfOutlets;
     private Inventory inventory;
     private ExecutorService executorService;
 
-    public CoffeeMachine(Integer machineId, Integer noOfOutlets, Inventory inventory) {
-        this.machineId = machineId;
+    public CoffeeMachine( Integer noOfOutlets) {
         this.noOfOutlets = noOfOutlets;
-        this.inventory=inventory;
         executorService = Executors.newFixedThreadPool(noOfOutlets);
+    }
+
+    public ExecutorService getExecutorService() {
+        return executorService;
+    }
+
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
     }
 }
