@@ -12,4 +12,12 @@ public class Component {
         this.ingredient = ingredient;
         this.quantity = quantity;
     }
+
+    @Override
+    public String toString() {
+        return "Component{" +
+                "ingredient=" + ingredient +
+                ", quantity=" + quantity +
+                '}';
+    }
 }

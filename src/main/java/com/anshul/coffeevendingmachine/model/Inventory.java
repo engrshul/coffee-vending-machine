@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Inventory {
 
-    private  Map<Ingredient,Double> inventoryMap;;
+    private   Map<Ingredient,Double> inventoryMap;;
 
     public Inventory() {
         inventoryMap = new HashMap<>();
@@ -16,5 +16,12 @@ public class Inventory {
 
     public void setInventoryMap(Map<Ingredient, Double> inventoryMap) {
         this.inventoryMap = inventoryMap;
+    }
+
+    @Override
+    public String toString() {
+        return "Inventory{" +
+                "inventoryMap=" + inventoryMap +
+                '}';
     }
 }

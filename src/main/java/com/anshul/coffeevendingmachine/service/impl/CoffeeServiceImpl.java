@@ -11,23 +11,24 @@ public class CoffeeServiceImpl implements CoffeeService {
 
     public static final InventoryServiceImpl inventoryServiceImpl = new InventoryServiceImpl();
     @Override
-    public void processRequest(InputRequest inputRequest) {
+    public CoffeeMachine processRequest(InputRequest inputRequest) {
 
-        CoffeeMachine coffeeMachine=new CoffeeMachine(inputRequest.getNoOFOutlets());
+        CoffeeMachine coffeeMachine=new CoffeeMachine(inputRequest.getNoOFOutlets(),inputRequest.getBeverageList());
         inventoryServiceImpl.refill(coffeeMachine,inputRequest.getTotalInventory());
         try {
-            brew(coffeeMachine,inputRequest.getBeverageList());
+            brew(coffeeMachine);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
+        return coffeeMachine;
     }
-    private void brew(CoffeeMachine coffeeMachine, List<Beverage> beverageList) throws InterruptedException {
+    private void brew(CoffeeMachine coffeeMachine) throws InterruptedException {
         ExecutorService executorService=coffeeMachine.getExecutorService();
         List<Brew> listOfTasks = new ArrayList<>();
-        for(Beverage beverage : beverageList) {
+        for(Beverage beverage : coffeeMachine.getBeveragesToPrepare()) {
             listOfTasks.add(new Brew(coffeeMachine,beverage));
         }
         executorService.invokeAll(listOfTasks);
+        executorService.shutdown();
     }
 }

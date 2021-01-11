@@ -28,19 +28,19 @@ public class InputProcessor {
     }
 
     private static List<Beverage> getBeveragesList(JsonObject beverageJson) {
-        System.out.println("going to process..");
+       // System.out.println("going to process..");
         List<Beverage> beverageList = new ArrayList<>();
         for(String key :beverageJson.keySet()) {
-            System.out.println("key is"+key);
+            // System.out.println("key is"+key);
             List<Component> beverageComponents = new ArrayList<>();
             // for this beverage key lets get its composition..
             JsonObject composition = beverageJson.getAsJsonObject(key);
             // get each ingredient
             for(String ingredientName : composition.keySet()) {
                 Ingredient ingredient = new Ingredient(ingredientName);
-                System.out.println(ingredient);
+               // System.out.println(ingredient);
                 Double qty =composition.get(ingredientName).getAsDouble();
-                System.out.println(qty);
+                // System.out.println(qty);
                 Component component = new Component(ingredient,qty);
                 beverageComponents.add(component);
             }
@@ -51,7 +51,6 @@ public class InputProcessor {
     }
 
     private static List<Component> getTotalInventory(JsonObject totalInventory) {
-        System.out.println("going to process..");
         List<Component>  stock = new ArrayList<>();
         for(String key : totalInventory.keySet()) {
             Double qty=totalInventory.get(key).getAsDouble();
@@ -63,7 +62,7 @@ public class InputProcessor {
 
     public static void main(String[] args) {
         try {
-            processInputRequest("src/main/resources/input.json");
+            processInputRequest("src/main/resources/testInventoryStatusAfterConsumption.json");
         }
         catch (Exception e) {
             e.printStackTrace();

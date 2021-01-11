@@ -25,4 +25,11 @@ public class Ingredient {
     public int hashCode() {
         return Objects.hash(ingredientName);
     }
+
+    @Override
+    public String toString() {
+        return "Ingredient{" +
+                "ingredientName='" + ingredientName + '\'' +
+                '}';
+    }
 }
