@@ -5,7 +5,7 @@ import com.anshul.coffeevendingmachine.service.impl.*;
 import java.util.*;
 import java.util.concurrent.*;
 
-public class Brew  implements Callable<Void> {
+public class Brew  implements Callable<Boolean> {
     private CoffeeMachine machine;
     private Beverage beverage;
 
@@ -15,7 +15,7 @@ public class Brew  implements Callable<Void> {
     }
 
     @Override
-    public Void call() throws Exception {
+    public Boolean call() throws Exception {
         Map<Ingredient,Double> totalInventory=machine.getInventory().getInventoryMap();
         List<Component> components=this.beverage.getComponents();
         InventoryServiceImpl serviceImpl = new InventoryServiceImpl();
@@ -34,6 +34,6 @@ public class Brew  implements Callable<Void> {
                 System.out.println(beverage.getBeverageName() +" is prepared");
             }
         }
-        return null;
+        return true;
     }
 }
